@@ -8,9 +8,9 @@ const initialState = {
 };
 
 export const categoriesSlice = createSlice({
-  name: 'categories',
+  name: 'category',
   initialState,
-  reducer: {
+  reducers: {
     checkStatus: (state) => {
       if (state.categories.length === 0) {
         return {
