@@ -13,7 +13,7 @@ function Form() {
     if (title !== '' && author !== '') {
       e.preventDefault();
       const book = {
-        item_id: `item${bookstore.lenght + 1}`,
+        item_id: `item${bookstore.length + 1}`,
         title,
         author,
         category,

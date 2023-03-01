@@ -25,14 +25,14 @@ const initialState = {
 export const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducer: {
+  reducers: {
     addBook: (state, action) => ({
       ...state,
       bookstore: [...state.bookstore, action.payload],
     }),
     removeBook: (state, action) => ({
       ...state,
-      bookstore: state.bookstore.filter((book) => book.id !== action.payload.id),
+      bookstore: state.bookstore.filter((book) => book.item_id !== action.payload),
     }),
   },
 });
