@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { deleteBooks, fetchBooks } from '../redux/books/booksSlice';
 import Form from './Form';
 
 function Book() {
   const bookstore = useSelector((state) => state.books.bookstore);
+  const status = useSelector((state) => state.books.status);
   const categories = useSelector((state) => state.categories.categories);
   const [selected, setSelected] = useState();
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchBooks());
+    }
+    if (status === 'succeeded') {
+      dispatch(fetchBooks());
+    }
+  }, [status, dispatch]);
+
   const selectHandler = (e) => {
     setSelected(e.target.value);
   };
@@ -40,14 +50,14 @@ function Book() {
         bookstore.map((book) => {
           if (book.category === selected) {
             return (
-              <li key={book.item_id}>
+              <li key={book.id}>
                 {book.title}
                 <p>
                   {book.author}
                 </p>
                 <button
-                  id={book.item_id}
-                  onClick={() => dispatch(removeBook(book.item_id))}
+                  id={book.id}
+                  onClick={() => dispatch(deleteBooks(book.id))}
                   type="button"
                 >
                   Remove
@@ -57,7 +67,7 @@ function Book() {
           }
           if (selected === 'All') {
             return (
-              <li key={book.item_id}>
+              <li key={book.id}>
                 {book.title}
                 <p>
                   {book.author}
@@ -67,8 +77,8 @@ function Book() {
                 </p>
                 <p />
                 <button
-                  id={book.item_id}
-                  onClick={() => dispatch(removeBook(book.item_id))}
+                  id={book.id}
+                  onClick={() => dispatch(deleteBooks(book.id))}
                   type="button"
                 >
                   Remove
@@ -80,7 +90,7 @@ function Book() {
 
           if (selected === undefined) {
             return (
-              <li key={book.item_id}>
+              <li key={book.id}>
                 {book.title}
                 <p>
                   {book.author}
@@ -90,8 +100,8 @@ function Book() {
                 </p>
                 <p />
                 <button
-                  id={book.item_id}
-                  onClick={() => dispatch(removeBook(book.item_id))}
+                  id={book.id}
+                  onClick={() => dispatch(deleteBooks(book.id))}
                   type="button"
                 >
                   Remove
