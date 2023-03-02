@@ -5,7 +5,7 @@ import { checkStatus } from '../redux/categories/categoriesSlice';
 function Categories() {
   const dispatch = useDispatch();
   const [show, setShow] = useState(true);
-  const Categories = useSelector(({ category }) => category.categories);
+  const categories = useSelector((state) => state.categories.categories);
   const categoryHandler = () => {
     setShow(false);
     dispatch(checkStatus());
@@ -17,7 +17,7 @@ function Categories() {
       show ? (<p />) : (
         <ul>
           {
-      Categories.map((category) => (
+      categories.map((category) => (
         <li key={category.id}>
           {category.category}
         </li>
