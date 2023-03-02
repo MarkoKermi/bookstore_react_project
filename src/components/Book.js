@@ -10,7 +10,6 @@ function Book() {
   const dispatch = useDispatch();
   const selectHandler = (e) => {
     setSelected(e.target.value);
-    // console.log(bookstore);
   };
   const booklibrary = bookstore.length ? (
     <ul>
