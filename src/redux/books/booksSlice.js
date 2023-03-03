@@ -1,7 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/LIwynBVImvIPWv4fs65F/books';
+import { createSlice } from '@reduxjs/toolkit';
+import { postBooks, deleteBooks, fetchBooks } from './api';
 
 const initialState = {
   bookstore: [],
@@ -10,37 +8,12 @@ const initialState = {
   createStatus: '',
   deleteStatus: '',
 };
-export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
-  try {
-    const response = await axios.get(BASE_URL);
-    return response.data;
-  } catch (error) {
-    return error.message;
-  }
-});
-export const postBooks = createAsyncThunk('books/postBooks', async (initialbooks) => {
-  try {
-    const response = await axios.post(BASE_URL, initialbooks);
-    return response.data;
-  } catch (error) {
-    return error.message;
-  }
-});
-
-export const deleteBooks = createAsyncThunk('books/deleteBooks', async (bookid) => {
-  try {
-    const response = await axios.delete(BASE_URL + bookid);
-    return response.data;
-  } catch (error) {
-    return error.message;
-  }
-});
 
 export const booksSlice = createSlice({
   name: 'books',
   initialState,
-  extraReducer(builder) {
-    builder.addBook(fetchBooks.pending, (state) => ({
+  extraReducers(builder) {
+    builder.addCase(fetchBooks.pending, (state) => ({
       ...state,
       status: 'loading',
     }))
@@ -50,11 +23,8 @@ export const booksSlice = createSlice({
         keys.forEach((key) => {
           temparray.push(Object.assign({ id: key }, ...action.payload[key]));
         });
-        return {
-          ...state,
-          bookstore: [...temparray],
-          status: 'loaded',
-        };
+        state.bookstore = [...temparray];
+        state.status = 'loaded';
       }).addCase(fetchBooks.rejected, (state, action) => ({
         ...state,
         status: 'failed',

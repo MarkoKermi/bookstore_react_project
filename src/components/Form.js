@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { postBooks } from '../redux/books/booksSlice';
+import { postBooks } from '../redux/books/api';
 
 function Form() {
   const [title, setTitle] = useState('');
