@@ -53,9 +53,9 @@ function Book() {
             return (
               <li key={book.id}>
                 <div className="book_elements">
-                  <h2>
+                  <div className="School-of">
                     {book.title}
-                  </h2>
+                  </div>
                   <p>
                     {book.author}
                   </p>
@@ -89,7 +89,7 @@ function Book() {
                     <div className="oval" />
                     <div className="complete-percent">
                       <span className="percentage">75%</span>
-                      <p className="completed">completed</p>
+                      <p className="completed">Completed</p>
                     </div>
                   </div>
                 </div>
@@ -111,15 +111,16 @@ function Book() {
             return (
               <li key={book.id}>
                 <div className="book_elements">
-                  <h2>
-                    {book.title}
-                  </h2>
-                  <p>
-                    {book.author}
-                  </p>
                   <p className="category_p">
                     {book.category}
                   </p>
+                  <div className="School-of">
+                    {book.title}
+                  </div>
+                  <p>
+                    {book.author}
+                  </p>
+
                   <p />
                   <div className="allBtn">
                     <button
@@ -152,7 +153,7 @@ function Book() {
                     <div className="oval" />
                     <div className="complete-percent">
                       <span className="percentage">75%</span>
-                      <p className="completed">completed</p>
+                      <p className="completed">Completed</p>
                     </div>
                   </div>
                 </div>
@@ -175,15 +176,16 @@ function Book() {
             return (
               <li key={book.id}>
                 <div className="book_elements">
-                  <h2>
-                    {book.title}
-                  </h2>
-                  <p>
-                    {book.author}
-                  </p>
                   <p className="category_p">
                     {book.category}
                   </p>
+                  <div className="School-of">
+                    {book.title}
+                  </div>
+                  <p>
+                    {book.author}
+                  </p>
+
                   <p />
                   <div className="allBtn">
                     <button

@@ -10,12 +10,12 @@ const Navbar = () => (
         <ul className="navList">
           <li className="navItem">
             <Link to="/" className="navLink">
-              Books
+              BOOKS
             </Link>
           </li>
           <li className="navItem">
             <Link to="categories" className="navLink">
-              Categories
+              CATEGORIES
             </Link>
           </li>
         </ul>
