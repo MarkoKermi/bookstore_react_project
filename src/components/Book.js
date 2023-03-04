@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { CircularProgressbar } from 'react-circular-progressbar';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteBooks, fetchBooks } from '../redux/books/api';
 import Form from './Form';
