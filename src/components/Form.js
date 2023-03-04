@@ -29,8 +29,8 @@ function Form() {
       <form className="book_form">
         <h2 className="book_title">ADD NEW BOOK</h2>
         <label htmlFor="Title" className="title">
-          Book Title
           <input
+            placeholder="Book Title"
             className="input"
             required
             type={title}
@@ -38,8 +38,8 @@ function Form() {
           />
         </label>
         <label htmlFor="Author" className="author">
-          Author
           <input
+            placeholder="Author"
             className="input"
             required
             type="text"
