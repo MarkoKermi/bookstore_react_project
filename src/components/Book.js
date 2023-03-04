@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CircularProgressbar } from 'react-circular-progressbar';
+// import { CircularProgressbar } from 'react-circular-progressbar';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteBooks, fetchBooks } from '../redux/books/api';
 import Form from './Form';
@@ -60,28 +60,39 @@ function Book() {
                   <p>
                     {book.author}
                   </p>
-                  <button
-                    className="btn_book"
-                    id={book.id}
-                    onClick={() => dispatch(deleteBooks(book.id))}
-                    type="button"
-                  >
-                    Remove
-                  </button>
-                  <button
-                    className="btn_book"
-                    type="button"
-                  >
-                    Comment
+                  <div className="allBtn">
+                    <button
+                      className="btn_book"
+                      id={book.id}
+                      onClick={() => dispatch(deleteBooks(book.id))}
+                      type="button"
+                    >
+                      Remove
+                    </button>
+                    <button
+                      className="btn_book"
+                      type="button"
+                    >
+                      Comment
 
-                  </button>
-                  <button
-                    className="btn_book"
-                    type="button"
-                  >
-                    Edit
+                    </button>
+                    <button
+                      className="btn_book"
+                      type="button"
+                    >
+                      Edit
 
-                  </button>
+                    </button>
+                  </div>
+                </div>
+                <div className="right-side">
+                  <div className="complete-graph">
+                    <div className="oval" />
+                    <div className="complete-percent">
+                      <span className="percentage">75%</span>
+                      <p className="completed">completed</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="progressInfo">
                   <p className="chapterOne"> CURRENT CHAPTER</p>
@@ -93,9 +104,6 @@ function Book() {
                     UPDATE PROGRES
 
                   </button>
-                  <div className="progressChart">
-                    <CircularProgressbar className="progressChart" />
-                  </div>
                 </div>
               </li>
             );
@@ -114,29 +122,40 @@ function Book() {
                     {book.category}
                   </p>
                   <p />
-                  <button
-                    className="btn_book"
-                    id={book.id}
-                    onClick={() => dispatch(deleteBooks(book.id))}
-                    type="button"
-                  >
-                    Remove
+                  <div className="allBtn">
+                    <button
+                      className="btn_book"
+                      id={book.id}
+                      onClick={() => dispatch(deleteBooks(book.id))}
+                      type="button"
+                    >
+                      Remove
 
-                  </button>
-                  <button
-                    className="btn_book"
-                    type="button"
-                  >
-                    Comment
+                    </button>
+                    <button
+                      className="btn_book"
+                      type="button"
+                    >
+                      Comment
 
-                  </button>
-                  <button
-                    className="btn_book"
-                    type="button"
-                  >
-                    Edit
+                    </button>
+                    <button
+                      className="btn_book"
+                      type="button"
+                    >
+                      Edit
 
-                  </button>
+                    </button>
+                  </div>
+                </div>
+                <div className="right-side">
+                  <div className="complete-graph">
+                    <div className="oval" />
+                    <div className="complete-percent">
+                      <span className="percentage">75%</span>
+                      <p className="completed">completed</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="progressInfo">
                   <p className="chapterOne"> CURRENT CHAPTER</p>
@@ -148,9 +167,6 @@ function Book() {
                     UPDATE PROGRES
 
                   </button>
-                  <div className="progressChart">
-                    <CircularProgressbar className="progressChart" />
-                  </div>
                 </div>
               </li>
             );
@@ -170,29 +186,40 @@ function Book() {
                     {book.category}
                   </p>
                   <p />
-                  <button
-                    className="btn_book"
-                    id={book.id}
-                    onClick={() => dispatch(deleteBooks(book.id))}
-                    type="button"
-                  >
-                    Remove
+                  <div className="allBtn">
+                    <button
+                      className="btn_book"
+                      id={book.id}
+                      onClick={() => dispatch(deleteBooks(book.id))}
+                      type="button"
+                    >
+                      Remove
 
-                  </button>
-                  <button
-                    className="btn_book"
-                    type="button"
-                  >
-                    Comment
+                    </button>
+                    <button
+                      className="btn_book"
+                      type="button"
+                    >
+                      Comment
 
-                  </button>
-                  <button
-                    className="btn_book"
-                    type="button"
-                  >
-                    Edit
+                    </button>
+                    <button
+                      className="btn_book"
+                      type="button"
+                    >
+                      Edit
 
-                  </button>
+                    </button>
+                  </div>
+                </div>
+                <div className="right-side">
+                  <div className="complete-graph">
+                    <div className="oval" />
+                    <div className="complete-percent">
+                      <span className="percentage">75%</span>
+                      <p className="completed">completed</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="progressInfo">
                   <p className="chapterOne"> CURRENT CHAPTER</p>
@@ -204,10 +231,8 @@ function Book() {
                     UPDATE PROGRES
 
                   </button>
-                  <div className="progressChart">
-                    <CircularProgressbar className="progressChart" />
-                  </div>
                 </div>
+
               </li>
             );
           }

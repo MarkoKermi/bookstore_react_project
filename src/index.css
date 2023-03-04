@@ -41,7 +41,6 @@ body {
   font-family: 'Roboto Slab', serif;
   font-size: 14px;
   cursor: pointer;
-  padding: 1%;
 }
 
 p {
@@ -92,10 +91,6 @@ label {
   opacity: 0.5;
   margin: 0;
 }
-
-/* .button {
-  border: none;
-} */
 
 .input {
   border: 1px solid #bbb;
@@ -158,12 +153,70 @@ label {
   list-style: none;
 }
 
-/* .library{
-  display: flex;
-  flex-direction: row;
-} */
-
 .progressChart {
   width: 111px;
   font-family: 'Montserrat', sans-serif;
+}
+
+.complete-graph {
+  display: flex;
+  gap: 1rem;
+}
+
+.oval {
+  border-radius: 50%;
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 5px solid #379cf6;
+  border-left-color: #e8e8e8;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.complete-percent {
+  display: flex;
+  flex-direction: column;
+}
+
+.percentage {
+  color: black;
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
+
+.completed {
+  color: rgb(0, 0, 0, 0.5);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.current-chapter {
+  font-family: RobotoSlab, sans-serif;
+  font-size: 0.813rem;
+  font-weight: 300;
+  color: rgb(10, 10, 10, 0.4);
+}
+
+.chapter-name {
+  color: rgb(10, 10, 10, 0.8);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.chapter-btn {
+  background-color: #0290ff;
+  font-family: RobotoSlab, sans-serif;
+  font-size: 0.813rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5rem 1.35rem;
+}
+
+.allBtn {
+  display: flex;
 }
