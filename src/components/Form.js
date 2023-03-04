@@ -25,26 +25,29 @@ function Form() {
   };
 
   return (
-    <div>
-      <form>
-        <label htmlFor="Title">
-          Book Title
+    <div className="book">
+      <form className="book_form">
+        <h2 className="book_title">ADD NEW BOOK</h2>
+        <label htmlFor="Title" className="title">
           <input
+            placeholder="Book Title"
+            className="input"
             required
             type={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
-        <label htmlFor="Author">
-          Author
+        <label htmlFor="Author" className="author">
           <input
+            placeholder="Author"
+            className="input"
             required
             type="text"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
           />
         </label>
-        <label htmlFor="catagories">
+        <label htmlFor="catagories" className="category">
           <select
             name="catagories"
             required
@@ -64,7 +67,7 @@ function Form() {
         }
           </select>
         </label>
-        <button type="submit" onClick={addBookHandler}>Add Book</button>
+        <button type="submit" className="btn" onClick={addBookHandler}>Add Book</button>
       </form>
     </div>
   );
