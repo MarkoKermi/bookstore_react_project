@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CircularProgressbar } from 'react-circular-progressbar';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteBooks, fetchBooks } from '../redux/books/api';
 import Form from './Form';
@@ -23,16 +24,17 @@ function Book() {
   };
   const booklibrary = bookstore.length ? (
     <ul>
-      <label htmlFor="categories">
-        Filterd by :categories
-        {'  '}
-        <select
-          name="categories"
-          defaultValue="All"
-          onInput={selectHandler}
-        >
-          <option defaultValue="All" value="All">All</option>
-          {
+      <div className="library">
+        <label htmlFor="categories">
+          Filterd by :
+          {'  '}
+          <select
+            name="categories"
+            defaultValue="All"
+            onInput={selectHandler}
+          >
+            <option defaultValue="All" value="All">All</option>
+            {
 
               categories.map((category) => (
                 <option
@@ -44,46 +46,112 @@ function Book() {
                 </option>
               ))
         }
-        </select>
-      </label>
-      {
+          </select>
+        </label>
+        {
         bookstore.map((book) => {
           if (book.category === selected) {
             return (
               <li key={book.id}>
-                {book.title}
-                <p>
-                  {book.author}
-                </p>
-                <button
-                  id={book.id}
-                  onClick={() => dispatch(deleteBooks(book.id))}
-                  type="button"
-                >
-                  Remove
-                </button>
+                <div className="book_elements">
+                  <h2>
+                    {book.title}
+                  </h2>
+                  <p>
+                    {book.author}
+                  </p>
+                  <button
+                    className="btn_book"
+                    id={book.id}
+                    onClick={() => dispatch(deleteBooks(book.id))}
+                    type="button"
+                  >
+                    Remove
+                  </button>
+                  <button
+                    className="btn_book"
+                    type="button"
+                  >
+                    Comment
+
+                  </button>
+                  <button
+                    className="btn_book"
+                    type="button"
+                  >
+                    Edit
+
+                  </button>
+                </div>
+                <div className="progressInfo">
+                  <p className="chapterOne"> CURRENT CHAPTER</p>
+                  <p className="chapter"> Chapter 10</p>
+                  <button
+                    className="btn"
+                    type="button"
+                  >
+                    UPDATE PROGRES
+
+                  </button>
+                  <div className="progressChart">
+                    <CircularProgressbar className="progressChart" />
+                  </div>
+                </div>
               </li>
             );
           }
           if (selected === 'All') {
             return (
               <li key={book.id}>
-                {book.title}
-                <p>
-                  {book.author}
-                </p>
-                <p>
-                  {book.category}
-                </p>
-                <p />
-                <button
-                  id={book.id}
-                  onClick={() => dispatch(deleteBooks(book.id))}
-                  type="button"
-                >
-                  Remove
+                <div className="book_elements">
+                  <h2>
+                    {book.title}
+                  </h2>
+                  <p>
+                    {book.author}
+                  </p>
+                  <p className="category_p">
+                    {book.category}
+                  </p>
+                  <p />
+                  <button
+                    className="btn_book"
+                    id={book.id}
+                    onClick={() => dispatch(deleteBooks(book.id))}
+                    type="button"
+                  >
+                    Remove
 
-                </button>
+                  </button>
+                  <button
+                    className="btn_book"
+                    type="button"
+                  >
+                    Comment
+
+                  </button>
+                  <button
+                    className="btn_book"
+                    type="button"
+                  >
+                    Edit
+
+                  </button>
+                </div>
+                <div className="progressInfo">
+                  <p className="chapterOne"> CURRENT CHAPTER</p>
+                  <p className="chapter"> Chapter 10</p>
+                  <button
+                    className="btn"
+                    type="button"
+                  >
+                    UPDATE PROGRES
+
+                  </button>
+                  <div className="progressChart">
+                    <CircularProgressbar className="progressChart" />
+                  </div>
+                </div>
               </li>
             );
           }
@@ -91,22 +159,55 @@ function Book() {
           if (selected === undefined) {
             return (
               <li key={book.id}>
-                {book.title}
-                <p>
-                  {book.author}
-                </p>
-                <p>
-                  {book.category}
-                </p>
-                <p />
-                <button
-                  id={book.id}
-                  onClick={() => dispatch(deleteBooks(book.id))}
-                  type="button"
-                >
-                  Remove
+                <div className="book_elements">
+                  <h2>
+                    {book.title}
+                  </h2>
+                  <p>
+                    {book.author}
+                  </p>
+                  <p className="category_p">
+                    {book.category}
+                  </p>
+                  <p />
+                  <button
+                    className="btn_book"
+                    id={book.id}
+                    onClick={() => dispatch(deleteBooks(book.id))}
+                    type="button"
+                  >
+                    Remove
 
-                </button>
+                  </button>
+                  <button
+                    className="btn_book"
+                    type="button"
+                  >
+                    Comment
+
+                  </button>
+                  <button
+                    className="btn_book"
+                    type="button"
+                  >
+                    Edit
+
+                  </button>
+                </div>
+                <div className="progressInfo">
+                  <p className="chapterOne"> CURRENT CHAPTER</p>
+                  <p className="chapter"> Chapter 10</p>
+                  <button
+                    className="btn"
+                    type="button"
+                  >
+                    UPDATE PROGRES
+
+                  </button>
+                  <div className="progressChart">
+                    <CircularProgressbar className="progressChart" />
+                  </div>
+                </div>
               </li>
             );
           }
@@ -114,6 +215,7 @@ function Book() {
           return false;
         })
     }
+      </div>
     </ul>
   ) : (
     <p>The box is empty</p>

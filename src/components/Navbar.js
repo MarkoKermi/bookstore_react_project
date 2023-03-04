@@ -1,15 +1,27 @@
 import { Link } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { GoPerson } from 'react-icons/go';
 
 const Navbar = () => (
   <>
-    <ul>
-      <li>
-        <Link to="/">Book</Link>
-      </li>
-      <li>
-        <Link to="/categories">Categories</Link>
-      </li>
-    </ul>
+    <div className="nav">
+      <div className="titleAndLinks">
+        <Link to="/" className="navTitle">Bookstore CMS</Link>
+        <ul className="navList">
+          <li className="navItem">
+            <Link to="/" className="navLink">
+              Books
+            </Link>
+          </li>
+          <li className="navItem">
+            <Link to="categories" className="navLink">
+              Categories
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <GoPerson className="navIcon" />
+    </div>
   </>
 );
 
